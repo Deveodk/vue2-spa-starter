@@ -7,6 +7,7 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import store from './store'
 import VueMoment from 'vue-moment'
+import 'es6-promise/auto'
 
 Vue.use(VueAxios, axios)
 axios.defaults.baseURL = ''
