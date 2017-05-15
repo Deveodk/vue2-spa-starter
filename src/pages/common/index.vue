@@ -1,8 +1,18 @@
 <template>
     <div class="hello">
-        <h1>Something awesome is coming.</h1>
+        <h1>{{ msg }}</h1>
     </div>
 </template>
+<script>
+    export default {
+        name: 'Index',
+        data () {
+            return {
+                msg: 'Something awesome is coming.'
+            }
+        }
+    }
+</script>
 <style>
     html, body{
         margin: 0;

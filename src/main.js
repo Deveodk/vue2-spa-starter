@@ -3,11 +3,14 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+import store from './store'
+
+Vue.use(VueAxios, axios)
+axios.defaults.baseURL = ''
 
 Vue.config.productionTip = false
-
-// Vuex
-import store from './store'
 
 /* eslint-disable no-new */
 new Vue({
