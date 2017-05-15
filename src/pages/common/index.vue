@@ -1,7 +1,7 @@
 <template>
     <div class="hello">
         <h1>{{ msg }}</h1>
-        <p>Made with <i class="fa fa-heart"></i> by Deveo</p>
+        <p>Made with <i class="fa fa-heart"></i> by <a target="_blank" rel="noopener" href="https://deveo.dk">Deveo</a></p>
     </div>
 </template>
 <script>
@@ -9,7 +9,7 @@
         name: 'Index',
         data () {
             return {
-                msg: 'Something awesome is coming.'
+                msg: 'Something awesome is coming'
             }
         }
     }
@@ -35,5 +35,16 @@
         font-weight: 100;
         text-align: center;
         letter-spacing: 1px;
+    }
+    a{
+        text-decoration: none;
+        color: inherit;
+        border-bottom: 1px dotted #fff;
+    }
+    a:hover, a:focus{
+        text-decoration: none;
+        color: inherit;
+        border-bottom: 1px solid #fff;
+        outline: none;
     }
 </style>
