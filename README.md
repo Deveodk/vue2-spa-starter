@@ -52,3 +52,5 @@ npm run e2e
 # run all tests
 npm test
 ```
+
+[![alt text](https://s3-eu-west-1.amazonaws.com/rk-solutions/github_footer.png)](https://deveo.dk)
