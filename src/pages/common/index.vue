@@ -1,6 +1,7 @@
 <template>
     <div class="hello">
         <h1>{{ msg }}</h1>
+        <p>Made with <i class="fa fa-heart"></i> by Deveo</p>
     </div>
 </template>
 <script>
@@ -25,8 +26,14 @@
         transform: translate(-50%, -50%);
         color: #fff;
     }
-    h1, h2 {
+    h1{
         font-weight: 100;
         font-size: 50px;
+        text-align: center;
+    }
+    p{
+        font-weight: 100;
+        text-align: center;
+        letter-spacing: 1px;
     }
 </style>
