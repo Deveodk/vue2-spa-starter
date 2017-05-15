@@ -6,9 +6,12 @@ import router from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import store from './store'
+import VueMoment from 'vue-moment'
 
 Vue.use(VueAxios, axios)
 axios.defaults.baseURL = ''
+
+Vue.use(VueMoment)
 
 Vue.config.productionTip = false
 
