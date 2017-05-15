@@ -6,7 +6,7 @@
 * ESLint code linting
 * Unit testing with Karma + Mocha & Nightwatch
 * API requests via services
-* Global eventBus
+* Global eventHub
 
 ## Included packages:
 * VueRouter
