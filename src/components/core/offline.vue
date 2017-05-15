@@ -1,7 +1,7 @@
 <template>
     <div class="offline-wrapper">
         <div class="offline-inner">
-            <div><i class="fa fa-exclamation-circle"></i></div>
+            <div class="icon"><i class="fa fa-exclamation-circle"></i></div>
             <h1>Hov!</h1>
             <h3>Du har mistet din internetforbindelse</h3>
             <p class="description">Vi kunne ikke registrere en aktiv internetforbindelse i din browser. Julle kan derfor ikke indlæses. Prøv at tjekke din forbindelse og opdater siden igen.</p>
@@ -16,7 +16,7 @@
 <style scoped>
     .offline-wrapper{
         width: 100%;
-        height: calc(100vh - 120px);
+        height: 100vh;
         position: relative;
     }
     .offline-inner{
@@ -35,16 +35,19 @@
     }
     p.description{
         margin: 10px 0px;
+        font-weight: 300;
     }
     h1{
         font-weight: bold;
         margin-bottom: 0;
+        margin-top: 0;
     }
     h3{
+        font-weight: 400;
         margin-top: 0px;
     }
-    .test{
-        color: #505458;
+    .icon{
+        color: #333;
         font-size: 100px;
         margin: 0;
     }

@@ -14,11 +14,7 @@
         }
     }
 </script>
-<style>
-    html, body{
-        margin: 0;
-        background: #03A9F4;
-    }
+<style scoped>
     .hello{
         position: absolute;
         top: 50%;
