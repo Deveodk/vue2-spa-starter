@@ -11,7 +11,8 @@ before pushing to a production environment.
 * Webpack compiler with hot reload
 * Sass-loader (Bootstrap and Font Awesome pre-installed)
 * ESLint code linting
-* Unit testing with Karma + Mocha & Nightwatch
+* Unit testing with Karma + Mocha
+* End-to-end testing with Nightwatch
 * API requests as services with VueAxios
 * Global eventHub
 
@@ -25,6 +26,7 @@ before pushing to a production environment.
 
 ## Included methods:
 * Check if user is online, otherwise throw offline template
+* In case of bad URL request, throw 404 template
 
 ## Build Setup
 
