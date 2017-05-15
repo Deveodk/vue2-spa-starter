@@ -1,12 +1,15 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <layout></layout>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    'layout': require('@/components/layout/layout.vue')
+  }
 }
 </script>
 
