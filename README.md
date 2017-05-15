@@ -1,13 +1,7 @@
 # vue2_project_template
-> A clean vue2 template with the Deveo structure and pre-implemented structure, useful packages and methods. This repo should be used as a template when creating new Deveo projects.
+> A clean vue2 template with the Deveo structure and pre-implemented useful packages and methods. This repo should be used as a template when creating new Deveo projects.
 
-IMPORTANT! Always remember to run
-``` bash
-npm run build
-```
-before pushing to a production environment.
-
-## Structure
+### Structure
 * Webpack compiler with hot reload
 * Sass-loader (Bootstrap and Font Awesome pre-installed)
 * ESLint code linting
@@ -52,5 +46,8 @@ npm run e2e
 # run all tests
 npm test
 ```
+
+## License
+[MIT](http://opensource.org/licenses/MIT)
 
 [![alt text](https://s3-eu-west-1.amazonaws.com/rk-solutions/github_footer.png)](https://deveo.dk)
