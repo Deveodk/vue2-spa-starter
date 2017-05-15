@@ -20,7 +20,7 @@
             this.updateStatus()
         },
         components: {
-            'offline': require('@/components/elements/offline')
+            'offline': require('@/components/core/offline')
         },
         methods: {
             updateStatus: function () {
