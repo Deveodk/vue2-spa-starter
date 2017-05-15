@@ -12,6 +12,7 @@
 * VueRouter
 * Vuex
 * VueAxios???
+* Vue-moment
 
 ## Included methods:
 * Check if user is online
