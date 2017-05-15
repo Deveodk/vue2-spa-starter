@@ -1,20 +1,30 @@
 # vue2_project_template
 > A clean vue2 template with the Deveo structure and pre-implemented structure, useful packages and methods. This repo should be used as a template when creating new Deveo projects.
 
+IMPORTANT! Always remember to run
+``` bash
+npm run build
+```
+before pushing to a production environment.
+
 ## Structure
-* Webpack + SASS/LESS??? compiler with hot reload
+* Webpack compiler with hot reload
+* Sass-loader (Bootstrap and Font Awesome pre-installed)
 * ESLint code linting
 * Unit testing with Karma + Mocha & Nightwatch
 * API requests as services with VueAxios
 * Global eventHub
 
 ## Included packages:
-* VueRouter
-* Vuex with axios
-* Vue-moment
+* vue-router
+* vuex
+* vue-axios
+* vue-moment
+* node-sass
+* sass-loader
 
 ## Included methods:
-* Check if user is online
+* Check if user is online, otherwise throw offline template
 
 ## Build Setup
 
