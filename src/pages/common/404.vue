@@ -3,7 +3,7 @@
         <div class="error-page-inner">
             <h1>404</h1>
             <h3>Ups! Der er sket en fejl ...</h3>
-            <p>Vi ved ikke helt hvad der er sket, men vi kan desværre ikke vise denne side. Dette kan være fordi du har forsøgt at tilgå et dødt link eller fordi du ikke har adgang til denne side. Kontakt venligst nærmeste teamleder for at få hjælp.</p>
+            <p>Vi ved ikke helt hvad der er sket, men vi kan desværre ikke vise denne side. Dette kan være fordi du har forsøgt at tilgå et dødt link eller fordi du ikke har adgang til denne side.</p>
             <router-link tag="a" :to="{name: $route.name}">
                 <button class="btn btn-xs btn-primary">
                     Genindlæs siden
@@ -15,12 +15,6 @@
                     Gå til forsiden
                 </button>
             </router-link>
-            |
-            <a href="/">
-                <button class="btn btn-xs btn-primary">
-                    Genstart Julle
-                </button>
-            </a>
         </div>
     </div>
 </template>

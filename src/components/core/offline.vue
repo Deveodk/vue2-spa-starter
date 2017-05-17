@@ -4,7 +4,7 @@
             <div class="icon"><i class="fa fa-exclamation-circle"></i></div>
             <h1>Hov!</h1>
             <h3>Du har mistet din internetforbindelse</h3>
-            <p class="description">Vi kunne ikke registrere en aktiv internetforbindelse i din browser. Julle kan derfor ikke indlæses. Prøv at tjekke din forbindelse og opdater siden igen.</p>
+            <p class="description">Vi kunne ikke registrere en aktiv internetforbindelse i din browser. Applikationen kan derfor ikke indlæses. Prøv at tjekke din forbindelse og opdater siden igen.</p>
             <p>
                 <a href="/">
                     <button class="btn btn-primary">Genindlæs siden</button>
