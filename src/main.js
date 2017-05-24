@@ -13,6 +13,7 @@ Vue.use(VueAxios, axios)
 axios.defaults.baseURL = ''
 
 Vue.use(VueMoment)
+require('moment/locale/da')
 
 Vue.config.productionTip = false
 
