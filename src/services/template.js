@@ -1,4 +1,4 @@
-import * as HttpService from './HttpService'
+import * as HttpService from '../HttpService'
 
 let namespace = ''
 
