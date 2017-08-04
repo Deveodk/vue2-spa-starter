@@ -11,7 +11,7 @@ import 'es6-promise/auto'
 import Raven from 'raven-js'
 import RavenVue from 'raven-js/plugins/vue'
 Raven
-    .config('https://be4e62b491a847528b0d48341315d263@sentry.io/199852')
+    // .config(' --- ADD SENTRY DSN HERE --- ')
     .addPlugin(RavenVue, Vue)
     .install()
 Vue.prototype.$raven = Raven
