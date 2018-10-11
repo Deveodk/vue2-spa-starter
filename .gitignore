@@ -1,5 +1,8 @@
 _book
 
+### Vue.js ###
+dist/
+
 ### Laravel ###
 vendor/
 node_modules/

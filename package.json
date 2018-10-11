@@ -1,6 +1,6 @@
 {
   "name": "vue2_project_template",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A clean vue2 template with the Deveo structure and already implemented useful packages and methods for creating new projects",
   "author": "Deveodk",
   "private": true,
