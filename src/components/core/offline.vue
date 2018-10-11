@@ -2,12 +2,12 @@
     <div class="offline-wrapper">
         <div class="offline-inner">
             <div class="icon"><i class="fa fa-exclamation-circle"></i></div>
-            <h1>Hov!</h1>
-            <h3>Du har mistet din internetforbindelse</h3>
-            <p class="description">Vi kunne ikke registrere en aktiv internetforbindelse i din browser. Applikationen kan derfor ikke indlæses. Prøv at tjekke din forbindelse og opdater siden igen.</p>
+            <h1>Whoops!</h1>
+            <h3>You've lost the connection to the internet.</h3>
+            <p class="description">We could not register a live connection to the internet. Since this application uses network functions, please make sure you have a valid network connection and try again.</p>
             <p>
                 <a href="/">
-                    <button class="btn btn-primary">Genindlæs siden</button>
+                    <button class="btn btn-primary">Refresh this page</button>
                 </a>
             </p>
         </div>

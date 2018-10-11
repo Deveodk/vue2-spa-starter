@@ -2,17 +2,17 @@
     <div class="error-page-wrapper">
         <div class="error-page-inner">
             <h1>404</h1>
-            <h3>Ups! Der er sket en fejl ...</h3>
-            <p>Vi ved ikke helt hvad der er sket, men vi kan desværre ikke vise denne side. Dette kan være fordi du har forsøgt at tilgå et dødt link eller fordi du ikke har adgang til denne side.</p>
+            <h3>Whoops! Something went wrong...</h3>
+            <p>We could not find what you were looking for.</p>
             <router-link tag="a" :to="{name: $route.name}">
                 <button class="btn btn-xs btn-primary">
-                    Genindlæs siden
+                    Refresh this page
                 </button>
             </router-link>
             |
             <router-link tag="a" :to="{name:'Index'}">
                 <button class="btn btn-xs btn-primary">
-                    Gå til forsiden
+                    Go to "home"
                 </button>
             </router-link>
         </div>
