@@ -28,9 +28,10 @@
         text-align: center;
     }
     p{
-        font-weight: 100;
+        font-weight: 300;
         text-align: center;
         letter-spacing: 1px;
+        font-size: 16px;
     }
     a{
         text-decoration: none;
