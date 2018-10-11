@@ -50,4 +50,4 @@ npm test
 ### License
 [MIT](http://opensource.org/licenses/MIT)
 
-[![alt text](https://s3.eu-central-1.amazonaws.com/deveo/deveo_banner.png)](https://deveo.dk)
+[![alt text](deveo_banner.png)](https://deveo.dk)
