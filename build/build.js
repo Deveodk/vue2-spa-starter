@@ -8,10 +8,19 @@ var path = require('path')
 var chalk = require('chalk')
 var webpack = require('webpack')
 var config = require('../config')
+var shell = require('shelljs')
 var webpackConfig = require('./webpack.prod.conf')
 
 var spinner = ora('building for production...')
 spinner.start()
+
+shell.rm('-rf', config.build.assetsRoot)
+shell.mkdir('-p', config.build.assetsRoot)
+shell.config.silent = true
+shell.cp('-R', 'static/*', config.build.assetsRoot)
+shell.cp('-R', '_redirects', config.build.assetsRoot)
+shell.cp('-R', 'sitemap.xml', config.build.assetsRoot)
+shell.config.silent = false
 
 rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
   if (err) throw err
