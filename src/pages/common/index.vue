@@ -14,13 +14,15 @@
         }
     }
 </script>
-<style scoped>
+<style lang="scss" scoped>
+@import "../../styles/vars.scss";
+
     .hello{
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        color: #fff;
+        color: $color--light;
     }
     h1{
         font-weight: 100;
@@ -36,12 +38,12 @@
     a{
         text-decoration: none;
         color: inherit;
-        border-bottom: 1px dotted #fff;
+        border-bottom: 1px dotted $color--light;
     }
     a:hover, a:focus{
         text-decoration: none;
         color: inherit;
-        border-bottom: 1px solid #fff;
+        border-bottom: 1px solid $color--light;
         outline: none;
     }
 </style>
