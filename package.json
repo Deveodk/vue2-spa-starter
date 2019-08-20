@@ -15,6 +15,10 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "@sentry/browser": "^5.6.2",
+    "@sentry/integrations": "^5.6.1",
+    "@websanova/vue-auth": "^2.21.14-beta",
+    "prerender-spa-plugin": "^3.4.0",
     "vue": "^2.2.6",
     "vue-router": "^2.3.1"
   },

@@ -7,5 +7,5 @@ module.exports = merge(prodEnv, {
   DEV_TOOLS: true,
   PRODUCTION_TIP: true,
   DEFAULT_LOCALE: '"da"',
-  API_URL: '""'
+  API_URL: '"https://devapi.proebitda.dk/v1"'
 })

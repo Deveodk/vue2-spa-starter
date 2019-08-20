@@ -1,3 +1,77 @@
+// Color
 $color--main: #283C86;
-$color--light: #ffffff;
-$color--dark: #000000;
+$color--white: #ffffff;
+$color--black: #000000;
+$color--dark: #172b43;
+$color--grey: #69798d;
+$color--light: rgba(0, 0, 0, 0.15);
+$color--light--inverted: rgba(255, 255, 255, 0.15);
+
+// Gradient
+$gradient--main: linear-gradient(45deg, lighten($color--main, 10%), $color--main);
+
+// Background
+$bg--light: #f2f2f5;
+$bg--lighter: #f8fafb;
+
+// Border
+$border--main: 1px solid rgba(0, 0, 0, 0.15);
+
+// Box shadow
+$boxshadow--main: 0px 5px 15px rgba(0, 0, 0, 0.15);
+$boxshadow--light: 0px 5px 15px rgba(0, 0, 0, 0.05);
+$boxshadow--dark: 0px 5px 15px rgba(0, 0, 0, 0.25);
+$boxshadow--creative: 0 5px 15px rgba(40,60,134,.15);
+
+// Border radius
+$borderradius--main: 3px;
+$borderradius--large: 10px;
+$borderradius--full: 1000px;
+
+// Font
+$fontfamily--main: 'Montserrat', sans-serif;
+$fontfamily--secondary: 'Open Sans', sans-serif;
+
+// Font weight
+$fontweight--main: 500;
+$fontweight--light: 300;
+$fontweight--bold: 700;
+$fontweight--bolder: 900;
+
+// Margin
+$margin--main: 30px;
+$margin--small: 15px;
+$margin--large: 45px;
+$margin--xl: 60px;
+$margin--xxl: 90px;
+
+// Padding
+$padding--main: 30px;
+$padding--small: 15px;
+$padding--large: 45px;
+$padding--xl: 60px;
+$padding--xxl: 90px;
+$padding--mega: 120px;
+$padding--ultra: 150px;
+
+// Font size
+$fontsize--main: 16px;
+$fontsize--mm: 18px;
+$fontsize--medium: 20px;
+$fontsize--large: 24px;
+$fontsize--xl: 30px;
+$fontsize--xxl: 36px;
+$fontsize--mega: 50px;
+$fontsize--small: 12px;
+$fontsize--sm: 14px;
+
+// Transition
+$transition--main: 0.3s ease all;
+$transition--fast: 0.15s ease all;
+
+// Text shadow
+$textshadow--dark: 0 0 10px rgba(0, 0, 0, 0.7);
+$textshadow--light: 0 0 10px rgba(255, 255, 255, 0.7);
+
+// Max width
+$maxwidth: 500px;

@@ -1,49 +1,54 @@
 <template>
-    <div class="hello">
-        <h1>{{ msg }}</h1>
-        <p>Made with <i class="fa fa-heart"></i> by <a target="_blank" rel="noopener" href="https://deveo.dk">Deveo</a></p>
+    <div class="index">
+        <seo-title content="Index | Deveo" />
+        <seo-description content="Index page ..." />
+        <div class="section white">
+            <div class="container">
+                <placeholder-boxes title="Index" />
+            </div>
+        </div>
+        <div class="section light cbt">
+            <div class="container">
+                Test API data:
+                {{ testApiData }}
+            </div>
+        </div>
+        <div class="section dark">
+            <div class="container">
+                <placeholder-boxes title="Index" />
+            </div>
+        </div>
+        <div class="section light">
+            <div class="container">
+                <placeholder-boxes title="Index" />
+            </div>
+        </div>
     </div>
 </template>
+
 <script>
-    export default {
-        name: 'Index',
-        data () {
-            return {
-                msg: 'Something awesome is coming'
-            }
+import * as testApiService from '@/services/TestApiService'
+// import * as Sentry from '@sentry/browser'
+
+export default {
+    data () {
+        return {
+            testApiData: ''
+        }
+    },
+    created () {
+        this.getTestApiData()
+    },
+    methods: {
+        getTestApiData () {
+            testApiService.find(1, {}, (response) => {
+                this.testApiData = response.data.title
+                this.$toastr('success', 'Vi har hentet test API data', 'Sådan')
+            }, (err) => {
+                console.log(err)
+                // Sentry.captureException(new Error('Could not get Test API Data'))
+            })
         }
     }
+}
 </script>
-<style lang="scss" scoped>
-@import "../../styles/vars.scss";
-
-    .hello{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: $color--light;
-    }
-    h1{
-        font-weight: 100;
-        font-size: 50px;
-        text-align: center;
-    }
-    p{
-        font-weight: 300;
-        text-align: center;
-        letter-spacing: 1px;
-        font-size: 16px;
-    }
-    a{
-        text-decoration: none;
-        color: inherit;
-        border-bottom: 1px dotted $color--light;
-    }
-    a:hover, a:focus{
-        text-decoration: none;
-        color: inherit;
-        border-bottom: 1px solid $color--light;
-        outline: none;
-    }
-</style>

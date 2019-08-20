@@ -8,19 +8,19 @@ import VueAxios from 'vue-axios'
 import store from './store'
 import VueMoment from 'vue-moment'
 import 'es6-promise/auto'
-import Raven from 'raven-js'
-import RavenVue from 'raven-js/plugins/vue'
-Raven
-    // .config(' --- ADD SENTRY DSN HERE --- ')
-    .addPlugin(RavenVue, Vue)
-    .install()
-Vue.prototype.$raven = Raven
+import * as Sentry from '@sentry/browser'
+import * as Integrations from '@sentry/integrations'
+
+Vue.component('placeholder-boxes', require('@/components/elements/placeholder-boxes'))
 
 import vueSeo from '@deveodk/vue-seo'
 Vue.use(vueSeo)
 
 Vue.use(VueAxios, axios)
-axios.defaults.baseURL = ''
+axios.defaults.baseURL = process.env.API_URL
+
+Vue.use(VueMoment)
+require('moment/locale/da')
 
 import VueToastr from '@deveodk/vue-toastr'
 import '@deveodk/vue-toastr/dist/@deveodk/vue-toastr.css'
@@ -30,33 +30,24 @@ Vue.use(VueToastr, {
     defaultTimeout: 5000
 })
 
-import errorTracker from '@deveodk/vue-error-tracker'
-Vue.use(errorTracker, {
-    HttpDriver: require('@deveodk/vue-error-tracker/drivers/http/axios.js'),
-    NotificationDriver: require('@deveodk/vue-error-tracker/drivers/notification/deveoToastr.js'),
-    ReportDriver: require('@deveodk/vue-error-tracker/drivers/report/sentry.js'),
-    HttpErrorCodes: {
-        401: {
-            title: 'Ingen adgang',
-            message: 'Du har ikke adgang til at se dette',
-            type: 'error'
-        },
-        400: {
-            title: 'Ukendt fejl',
-            message: 'Noget gik galt',
-            type: 'error'
-        },
+if (process.env.NODE_ENV === 'production') {
+    Sentry.init({
+        dsn: 'https://a5fb7f577b8247fa8ec1d159372fdb86@sentry.io/1536303',
+        integrations: [new Integrations.Vue({Vue, attachProps: true})]
+    })
+}
 
-        500: {
-            title: 'Server fejl',
-            message: 'Åhh nej noget er gået galt',
-            type: 'error'
-        }
-    }
+Vue.router = router
+
+Vue.use(require('@websanova/vue-auth'), {
+  auth: require('@/auth/bearer_driver.js'),
+  http: require('@websanova/vue-auth/drivers/http/axios.1.x.js'),
+  router: require('@websanova/vue-auth/drivers/router/vue-router.2.x.js'),
+  parseUserData: function (data) {
+      return data
+  },
+  authRedirect: {path: '/login'}
 })
-
-Vue.use(VueMoment)
-require('moment/locale/da')
 
 Vue.config.productionTip = false
 

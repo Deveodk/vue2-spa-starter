@@ -9,25 +9,23 @@ let postCompleted = 0
 const get = (path, data, cb, errorCb) => {
     requestsTotal++
     store.state.loading = true
-    store.state.errors = []
     Vue.axios.get(path, {params: data})
         .then((response) => {
-            requestCompleted++
-            loading()
-            cb(response)
-        }).catch(error => {
         requestCompleted++
         loading()
-        console.log(error)
-        errorCb('test')
-        // errorCb(error)
+        cb(response)
+    }).catch(error => {
+        requestCompleted++
+        loading()
+        if (errorCb !== undefined) {
+            errorCb(error.response)
+        }
     })
 }
 
 const remove = (path, cb, errorCb) => {
     requestsTotal++
     store.state.loading = true
-    store.state.errors = []
     Vue.axios.delete(path)
         .then((response) => {
             requestCompleted++
@@ -36,14 +34,15 @@ const remove = (path, cb, errorCb) => {
         }).catch(error => {
         requestCompleted++
         loading()
-        errorCb(error)
+        if (errorCb !== undefined) {
+            errorCb(error.response)
+        }
     })
 }
 
 const post = (path, data, cb, errorCb) => {
     postTotal++
     store.state.inputLoading = true
-    store.state.errors = []
     Vue.axios.post(path, data)
         .then((response) => {
             postCompleted++
@@ -52,10 +51,8 @@ const post = (path, data, cb, errorCb) => {
         }).catch(error => {
         postCompleted++
         PostLoading()
-        if (error.response !== undefined) {
-            if (error.response.status === 422) {
-                store.state.errors = error.response.data
-            }
+        if (errorCb !== undefined) {
+            errorCb(error.response)
         }
     })
 }
@@ -63,30 +60,26 @@ const post = (path, data, cb, errorCb) => {
 const put = (path, data, cb, errorCb) => {
     postTotal++
     store.state.inputLoading = true
-    store.state.errors = []
     data['_method'] = 'PUT'
-    Vue.axios.post(path, data)
-        .then((response) => {
+    Vue.axios.put(path, data).then((response) => {
             postCompleted++
             PostLoading()
             cb(response)
-        }).catch(error => {
+        }).catch((error) => {
         postCompleted++
         PostLoading()
-        if (error.response !== undefined) {
-            if (error.response.status === 422) {
-                store.state.errors = error.response.data
-            }
+        if (errorCb !== undefined) {
+            errorCb(error.response)
         }
     })
 }
 
 function loading () {
-    if (requestsTotal === requestCompleted) {
-        requestsTotal = 0
-        requestCompleted = 0
-        store.state.loading = false
-    }
+        if (requestsTotal === requestCompleted) {
+            requestsTotal = 0
+            requestCompleted = 0
+            store.state.loading = false
+        }
 }
 
 function PostLoading () {
@@ -103,3 +96,4 @@ export {
     post,
     put
 }
+
