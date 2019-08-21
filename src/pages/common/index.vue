@@ -11,6 +11,11 @@
             <div class="container">
                 Test API data:
                 {{ testApiData }}
+                <br><br>
+                <button @click="toastSuccess()">Success</button>
+                <button @click="toastError()">Error</button>
+                <button @click="toastWarning()">Warning</button>
+                <button @click="toastInfo()">Info</button>
             </div>
         </div>
         <div class="section dark">
@@ -37,17 +42,31 @@ export default {
         }
     },
     created () {
-        this.getTestApiData()
+        setTimeout(() => {
+            this.getTestApiData()
+        }, 2000)
     },
     methods: {
         getTestApiData () {
             testApiService.find(1, {}, (response) => {
                 this.testApiData = response.data.title
-                this.$toastr('success', 'Vi har hentet test API data', 'Sådan')
+                this.$toastr('info', 'Test API Data was loaded', 'Awesome!')
             }, (err) => {
                 console.log(err)
                 // Sentry.captureException(new Error('Could not get Test API Data'))
             })
+        },
+        toastSuccess () {
+            this.$toastr('success', 'Awesome - You\'re now logged in to the platform. Have fun!', 'Login successful')
+        },
+        toastInfo () {
+            this.$toastr('info', 'This is an info text and you are supposed to read this.', 'Please note')
+        },
+        toastWarning () {
+            this.$toastr('warning', 'You are only logged on in 1 hour. After that, please log in again.', 'Be aware!')
+        },
+        toastError () {
+            this.$toastr('error', 'Username and/or password is incorrect. Please try again.', 'Login failed')
         }
     }
 }

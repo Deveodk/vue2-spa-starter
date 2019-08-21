@@ -1,20 +1,24 @@
 <template>
-    <div class="layout" v-if="isOnline && $auth.check() || !$auth.ready()">
+    <div class="layout" v-if="$auth.ready() && isOnline">
         <loader v-show="!$store.state.loaded" />
-        <top-menu v-if="$route.name !== '404' && $route.name !== 'Login' && $route.name !== 'ForgotPassword' && $route.name !== 'SetNewPassword'" />
+        <top-menu v-if="$auth.check() && $route.name !== '404'" />
         <div class="content">
             <transition name="fade">
                 <router-view></router-view>
             </transition>
         </div>
-        <bottom-footer v-if="$route.name !== '404' && $route.name !== 'Login' && $route.name !== 'ForgotPassword' && $route.name !== 'SetNewPassword'" />
+        <foo v-if="$auth.check() && $route.name !== '404'" />
     </div>
+    <loader v-else-if="!$auth.ready()" />
     <offline v-else-if="!isOnline" />
-    <login v-else-if="!$auth.check()" @loggedIn="initialize()" />
 </template>
 
 <style lang="scss">
 @import "../../styles/vars.scss";
+
+    html {
+        background: $color--dark;
+    }
 
     .layout {
         color: #fff;
@@ -79,7 +83,7 @@
         components: {
             'offline': require('@/components/core/offline'),
             'top-menu': require('@/components/layout/menu'),
-            'bottom-footer': require('@/components/layout/footer'),
+            'foo': require('@/components/layout/footer'),
             'loader': require('@/components/layout/loader'),
             'login': require('@/components/core/login')
         },

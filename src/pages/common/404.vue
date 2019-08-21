@@ -11,9 +11,9 @@
                 We could not find what you were looking for.
             </div>
             <div class="actions">
-                <a href="/" class="button">
+                <router-link tag="a" :to="{name: 'Index'}" class="button">
                     Go to homepage
-                </a>
+                </router-link>
             </div>
         </div>
     </div>
@@ -31,6 +31,13 @@
         text-align: center;
         padding: $padding--main;
         padding-top: 100px;
+        
+        @media all and (min-width: 768px) {
+            display: flex;
+            padding: $padding--xl;
+            justify-content: center;
+            align-items: center;
+        }
 
         .title {
             font-size: $fontsize--xxl;

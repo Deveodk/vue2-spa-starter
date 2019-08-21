@@ -19,31 +19,50 @@ export default new Router({
     {
       path: '/',
       name: 'Index',
-      component: require('@/pages/common/index')
+      component: require('@/pages/common/index'),
+      meta: {
+        auth: true
+      }
     },
     {
       path: '/about',
       name: 'About',
-      component: require('@/pages/about/index')
+      component: require('@/pages/about/index'),
+      meta: {
+        auth: true
+      }
     },
     {
       path: '/contact',
       name: 'Contact',
-      component: require('@/pages/contact/index')
+      component: require('@/pages/contact/index'),
+      meta: {
+        auth: true
+      }
     },
     {
       path: '/login',
-      redirect: '/'
+      name: 'Login',
+      component: require('@/components/core/login'),
+      meta: {
+        auth: false
+      }
     },
     {
       path: '/forgot-password',
       name: 'ForgotPassword',
-      component: require('@/components/core/forgot-password')
+      component: require('@/components/core/forgot-password'),
+      meta: {
+        auth: false
+      }
     },
     {
       path: '/set-new-password',
       name: 'SetNewPassword',
-      component: require('@/components/core/create-password')
+      component: require('@/components/core/create-password'),
+      meta: {
+        auth: false
+      }
     }
   ]
 })

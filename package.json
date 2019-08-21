@@ -20,12 +20,12 @@
     "@websanova/vue-auth": "^2.21.14-beta",
     "prerender-spa-plugin": "^3.4.0",
     "vue": "^2.2.6",
-    "vue-router": "^2.3.1"
+    "vue-router": "^2.3.1",
+    "@deveodk/vue-toastr": "^1.0.4"
   },
   "devDependencies": {
     "@deveodk/vue-error-tracker": "^1.1.0",
     "@deveodk/vue-seo": "^1.0.1",
-    "@deveodk/vue-toastr": "^1.0.4",
     "autoprefixer": "^6.7.2",
     "axios": "^0.16.1",
     "babel-core": "^6.22.1",

@@ -13,10 +13,22 @@
                         type="text"
                         placeholder="Please type in your username ..."
                         v-model="loginData.email"
+                        @keydown.enter="requestReset()"
+                        ref="username"
                     />
                 </div>
-                <div class="submit">
-                    Request password reset
+                <div class="submit" @click="requestReset()">
+                    <span v-if="!loading">
+                        Request password reset
+                    </span>
+                    <span v-else>
+                        <i class="fas fa-circle-notch fa-spin" />
+                    </span>
+                </div>
+                <div class="forgot-password">
+                    <router-link tag="a" :to="{name: 'Login'}">
+                        Back to login
+                    </router-link>
                 </div>
             </div>
         </div>
@@ -210,12 +222,31 @@
 </style>
 
 <script>
+import * as authService from '@/services/authService'
+
 export default {
     data () {
         return {
+            loading: false,
             loginData: {
                 email: ''
             }
+        }
+    },
+    mounted () {
+        this.$nextTick(() => this.$refs.username.focus())
+    },
+    methods: {
+        requestReset () {
+            this.loading = true
+            authService.requestReset(this.loginData, (response) => {
+                this.$toastr('success', 'Please check your email for a password reset link', 'Mail sent')
+                this.loading = false
+                this.$router.push({name: 'Login'})
+            }, (err) => {
+                this.$toastr('error', err.data, 'Whoops!')
+                this.loading = false
+            })
         }
     }
 }

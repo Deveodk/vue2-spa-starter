@@ -30,6 +30,13 @@
         padding: $padding--main;
         padding-top: 100px;
 
+        @media all and (min-width: 768px) {
+            display: flex;
+            padding: $padding--xl;
+            justify-content: center;
+            align-items: center;
+        }
+
         .title {
             font-size: $fontsize--xxl;
             font-weight: $fontweight--bold;

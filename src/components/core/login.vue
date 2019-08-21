@@ -6,39 +6,51 @@
             </div>
             <div class="box">
                 <div class="field-wrapper username">
-                    <label>
+                    <label for="username">
                         Username
                     </label>
                     <input
                         type="text"
                         placeholder="Please type in your username ..."
                         v-model="loginData.email"
+                        @keydown.enter="login()"
+                        name="username"
+                        id="username"
+                        ref="username"
                     />
                 </div>
                 <div class="field-wrapper password">
-                    <label>
+                    <label for="password">
                         Password
                     </label>
                     <input
                         type="password"
                         placeholder="Please type in your password ..."
-                        v-model="loginData.password" @keydown.enter="login()"
+                        v-model="loginData.password"
+                        @keydown.enter="login()"
+                        name="password"
+                        id="password"
                     />
                 </div>
                 <div class="remember-me">
-                    <label class="checkcontainer">
+                    <label class="checkcontainer" for="remember">
                         Remember me
-                        <input type="checkbox" v-model="loginData.rememberMe">
+                        <input type="checkbox" v-model="loginData.rememberMe" name="remember" id="remember" >
                         <span class="checkmark"></span>
                     </label>
                 </div>
                 <div class="submit" @click="login()">
-                    Log in
+                    <span v-if="!loading">
+                        Log in
+                    </span>
+                    <span v-else>
+                        <i class="fas fa-circle-notch fa-spin" />
+                    </span>
                 </div>
                 <div class="forgot-password">
-                    <a href="javascript:void(0)">
+                    <router-link tag="a" :to="{name: 'ForgotPassword'}">
                         Forgot password?
-                    </a>
+                    </router-link>
                 </div>
             </div>
         </div>
@@ -235,18 +247,20 @@
 export default {
     data () {
         return {
+            loading: false,
             loginData: {
                 email: '',
                 password: '',
-                rememberMe: false
+                rememberMe: true
             }
         }
     },
+    mounted () {
+        this.$nextTick(() => this.$refs.username.focus())
+    },
     methods: {
         login () {
-            console.log('login now')
-            console.log('check if we can log into API with the following data:')
-            console.log(this.loginData)
+            this.loading = true
             this.$auth.login({
                 url: process.env.API_URL + '/auth/login',
                 data: this.loginData,
@@ -255,9 +269,13 @@ export default {
                 redirect: {name: 'Index'},
                 success: (response) => {
                     this.$emit('loggedIn')
+                    let userName = this.$auth.user().name
+                    this.$toastr('info', 'Nice to see you!', 'Welcome, ' + userName)
+                    this.loading = false
                 },
                 error: () => {
-                    alert('Could not login. Please check your username and password and try again. If the problem persists, please try to request a new password via the "Forgot password?" link.')
+                    this.$toastr('error', 'Could not login. Please check your username and password and try again.', 'Authentication failed')
+                    this.loading = false
                 }
             })
         }

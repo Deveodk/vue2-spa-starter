@@ -13,10 +13,17 @@
                         type="password"
                         placeholder="Please type in your new password ..."
                         v-model="loginData.password"
+                        @keydown.enter="resetPassword()"
+                        ref="password"
                     />
                 </div>
-                <div class="submit">
-                    Set new password
+                <div class="submit" @click="resetPassword()">
+                    <span v-if="!loading">
+                        Set new password
+                    </span>
+                    <span v-else>
+                        <i class="fas fa-circle-notch fa-spin" />
+                    </span>
                 </div>
             </div>
         </div>
@@ -210,12 +217,50 @@
 </style>
 
 <script>
+import * as authService from '@/services/authService'
+
 export default {
     data () {
         return {
+            loading: false,
             loginData: {
+                token: '',
                 password: ''
             }
+        }
+    },
+    created () {
+        this.checkToken()
+    },
+    mounted () {
+        this.$nextTick(() => this.$refs.password.focus())
+    },
+    methods: {
+        checkToken () {
+            if (this.$route.query.token) {
+                this.loading = true
+                this.loginData.token = this.$route.query.token
+                authService.checkToken(this.loginData, (response) => {
+                    this.loading = false
+                }, (err) => {
+                    this.$toastr('error', err.data, 'Whoops!')
+                    this.$router.push({name: 'ForgotPassword'})
+                    this.loading = false
+                })
+            } else {
+                this.$router.push({name: 'ForgotPassword'})
+            }
+        },
+        resetPassword () {
+            this.loading = true
+            authService.setNewPassword(this.loginData, (response) => {
+                this.$toastr('success', 'Password was successfully reset', 'Success')
+                this.loading = false
+                this.$router.push({name: 'Login'})
+            }, (err) => {
+                this.$toastr('error', err.data, 'Whoops!')
+                this.loading = false
+            })
         }
     }
 }

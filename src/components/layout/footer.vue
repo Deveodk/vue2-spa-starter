@@ -5,7 +5,7 @@
                 {{ year }} &copy; Deveo
             </div>
             <div class="logout">
-                <div class="button" @click="$auth.logout()">
+                <div class="button" @click="logout()">
                     Log out
                     <i class="fad fa-sign-out fa-fw" />
                 </div>
@@ -48,6 +48,12 @@
 
 <script>
 export default {
+    methods: {
+        logout () {
+            this.$auth.logout()
+            this.$router.push({name: 'Login'})
+        }
+    },
     computed: {
         year () {
             let d = new Date()
